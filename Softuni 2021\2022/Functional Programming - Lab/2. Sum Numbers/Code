@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 2SumNumbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Func<string, int> parse = n => int.Parse(n);
+            List<int> numbers = Console.ReadLine().Split(',').Select(parse).ToList();
+            Console.WriteLine(numbers.Count);
+            Console.WriteLine(numbers.Sum());
+
+        }
+    }
+}

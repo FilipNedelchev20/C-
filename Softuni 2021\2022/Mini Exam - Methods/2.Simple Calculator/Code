@@ -1,0 +1,31 @@
+using System;
+
+namespace 2SimpleCalculator
+{
+    class Program
+    {
+
+        // въвеждаме първи метод за събиране
+        private static void Sum(int number, int number1)
+        {
+            // въвеждаме резултат да събере първите две числа
+            int result = number + number1;
+            
+        }
+        // въвеждаме вторият метод за изваждане
+        private static void Subtract(int number, int number1,int number2)
+        {  // вевеждаме пак резултат и сметката
+            int result = number + number1;
+            //изписваме на конзолата изваждането и финалния резултат
+            Console.WriteLine(result - number2);
+        }
+        
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            int number1 = int.Parse(Console.ReadLine());
+            int number2 = int.Parse(Console.ReadLine());
+            Subtract(number, number1, number2);
+        }
+    }
+}

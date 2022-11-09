@@ -1,0 +1,44 @@
+using System;
+using System.Diagnostics;
+
+namespace 1SmallestOfThreeNumbers
+{
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
+    class Program
+    { 
+        private static int SmalestNumber(int number, int number1, int number2)
+        {
+            if (number < number1 && number < number2)
+            {
+
+               
+                Console.WriteLine(number);
+                return number;
+            }
+            else if (number1 < number && number1 < number2)
+            {
+               
+                Console.WriteLine(number1);
+                return number1;
+            }
+            else
+            {
+                
+                Console.WriteLine(number2);
+                return number2;
+            }
+        }
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            int number1 = int.Parse(Console.ReadLine());
+            int number2 = int.Parse(Console.ReadLine());
+            SmalestNumber(number, number1, number2);
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
+        }
+    }
+}

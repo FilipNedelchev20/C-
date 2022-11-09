@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 1Names
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // въвеждаме номер Н
+            int number = int.Parse(Console.ReadLine());
+            // въвеждаме листа с имена
+            List<string> names = new List<string>();
+            // пивем фор за да напивем за всеки път в който въртим да пище по едно име
+            for (int i = 0; i < number; i++)
+            {
+                // четем листа от конзолата
+                names.Add(Console.ReadLine());
+
+            }
+            // сортираме ги по азбучен ред
+            names.Sort();
+            // пивем форийч за да може да ги сортираме името в листа
+            foreach ( string name in names)
+            {
+                // изписжаме на конзолата
+                Console.WriteLine(name);
+            }
+           
+
+        }
+    }
+}

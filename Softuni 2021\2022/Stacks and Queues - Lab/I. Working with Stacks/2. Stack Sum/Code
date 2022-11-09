@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 2StackSum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack<int> stack = new Stack<int>(Console.ReadLine().Split(" ")
+                .Select(int.Parse));
+            string command = Console.ReadLine().ToLower();
+            while (command != "end")
+            {
+                string[] items = command.Split();
+
+                string evetn = items[0];
+
+
+                if (evetn == "add")
+                {
+                    int firstitem = int.Parse(items[1]);
+                    int seconditem = int.Parse(items[2]);
+                    stack.Push(firstitem);
+                    stack.Push(seconditem);
+
+                }
+                else if (evetn == "remove")
+                {
+                    int firstElement = int.Parse(items[1]);
+                    if (stack.Count >= firstElement)
+                    {
+                        for (int i = 0; i < firstElement; i++)
+                        {
+                            stack.Pop();
+                        }
+                    }
+
+                }
+                if (command == "end")
+                {
+                    break;
+                }
+                command = Console.ReadLine().ToLower();
+            }
+            Console.WriteLine($"Sum: {stack.Sum()}");
+        }
+    }
+}

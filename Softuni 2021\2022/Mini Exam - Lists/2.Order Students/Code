@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace 2OrderStudents
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> numbers = Console.ReadLine().Split('|').Reverse().ToList();
+            List<string> result = new List<string>();
+            foreach (string item in numbers)
+            {
+                result.AddRange(item.Split(' ', StringSplitOptions.RemoveEmptyEntries));
+               
+            }
+           
+            Console.WriteLine(string.Join(" ", result));
+
+
+        }
+    }
+}

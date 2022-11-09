@@ -1,0 +1,41 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace 5AverageStudentGrades
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            Dictionary<string, List<decimal>> dictionary = new Dictionary<string, List<decimal>>();
+
+            for (int i = 0; i < n; i++)
+            {
+                string line = Console.ReadLine();
+                string[] lineParts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                if (!dictionary.ContainsKey(lineParts[0]))
+                {
+
+                    dictionary[lineParts[0]] = new List<decimal>();
+                    dictionary[lineParts[0]].Add(decimal.Parse(lineParts[1]));
+                }
+                else
+                {
+
+
+                    dictionary[lineParts[0]].Add(decimal.Parse(lineParts[1]));
+                }
+
+
+            }
+            foreach (var item in dictionary)
+            {
+                Console.WriteLine($"{item.Key} -> {string.Join(' ', item.Value.Select(x => $"{x:f2}"))} " +
+                    $"(avg: {item.Value.Average():f2})");
+            }
+        }
+    }
+}

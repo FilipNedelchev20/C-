@@ -1,0 +1,17 @@
+using System;
+
+namespace 5PrintPartOfTheASCIITable
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int firstPosition = int.Parse(Console.ReadLine());
+            int lastPosition = int.Parse(Console.ReadLine());
+            for (int i = firstPosition; i <= lastPosition; i++)
+            {
+                Console.Write($" { (char)i }");
+            }
+        }
+    }
+}

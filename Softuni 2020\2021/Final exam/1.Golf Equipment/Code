@@ -1,0 +1,20 @@
+ using System;
+
+namespace 1GolfEquipment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double priceGolfStick = double.Parse(Console.ReadLine());
+            int golfStick = int.Parse(Console.ReadLine());
+            int golfBalls = int.Parse(Console.ReadLine());
+            double golfBallsPrice = priceGolfStick / 6;
+            double others = 0.2 * (priceGolfStick * golfStick + golfBalls * golfBallsPrice);
+            double totalPrice = others + golfBallsPrice * golfBalls + priceGolfStick * golfStick;
+            Console.WriteLine($"Tony should pay {Math.Floor(totalPrice / 8)}");
+            Console.WriteLine($"Sponsors should pay {Math.Floor(totalPrice * 0.875)}");
+        }  
+    }
+   
+}

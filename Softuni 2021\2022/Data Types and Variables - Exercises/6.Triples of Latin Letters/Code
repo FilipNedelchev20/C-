@@ -1,0 +1,22 @@
+using System;
+
+namespace 6TripleOfLatinLetters
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numbers = int.Parse(Console.ReadLine());
+            for (char i = 'a'; i < 'a' + numbers; i++)
+            {
+                for (char j = 'a'; j < 'a' + numbers; j++)
+                {
+                    for (char k = 'a'; k < 'a' + numbers; k++)
+                    {
+                        Console.WriteLine($"{i}{j}{k}");
+                    }
+                }
+            }
+        }
+    }
+}

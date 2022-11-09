@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace 2OddOccurrences
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] letters = Console.ReadLine().Split(' ');
+            Dictionary<string, int> count = new Dictionary<string, int>();
+            foreach (var words in letters)
+            {
+                string lettersLowerCase = words.ToLower();
+                if (count.ContainsKey(lettersLowerCase))
+                {
+                    count[lettersLowerCase]++;
+                }
+                else
+                {
+                    count.Add(lettersLowerCase, 1);
+                }
+            }
+            foreach (var counts in count)
+            {
+                if (counts.Value % 2 != 0)
+                {
+                    Console.Write(counts.Key + " ");
+                }
+            }
+        }
+    }
+}

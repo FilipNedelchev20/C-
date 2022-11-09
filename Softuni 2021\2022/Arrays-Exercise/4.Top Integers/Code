@@ -1,0 +1,34 @@
+using System;
+using System.Linq;
+namespace 4TopIntegers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+            bool bigger;
+            int number;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                number = array[i];
+                bigger = true;
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (number <= array[j])
+                    {
+                        bigger = false;
+                        break;
+
+                    }
+
+                }
+                if (bigger)
+                {
+                    Console.Write(number + " ");
+                }
+            }
+            Console.Write(array[array.Length - 1]);
+        }
+    }
+}

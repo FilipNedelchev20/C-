@@ -1,0 +1,86 @@
+using System;
+
+
+
+
+namespace DimoHelp
+
+{
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+
+            int heightGoal = int.Parse(Console.ReadLine());
+
+            int heightNow = heightGoal - 30;
+
+            int jumpCompleted = 0;
+
+            while (heightNow <= heightGoal)
+
+            {
+
+                int jumpFailed = 0;
+
+                for (int jump = 1; jump <= 3; jump++)
+
+                {
+
+                    int height = int.Parse(Console.ReadLine());
+
+                    if (height > heightNow)
+
+                    {
+
+                        jumpCompleted += 1;
+
+                        heightNow += 5;
+
+                        break;
+
+                    }
+
+                    else
+
+                    {
+
+                        jumpFailed += 1;
+
+                    }
+
+                }
+
+                if (jumpFailed == 3)
+
+                {
+
+                    Console.WriteLine($"{heightNow}cm was too hard for Dimo to reach. He made {jumpCompleted} tries.");
+
+                }
+
+
+
+
+            }
+
+            if (heightNow > heightGoal)
+
+            {
+
+                Console.WriteLine($"Dimo did it, he reached his goal with {heightGoal}cm.He made { jumpCompleted} tries.");
+
+
+
+
+            }
+
+        }
+
+    }
+
+}

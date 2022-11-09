@@ -1,0 +1,21 @@
+using System;
+using System.Linq;
+
+namespace 4ReverseArrayOfStrings
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var letters = Console.ReadLine().Split(' ').ToArray();
+            for (int i = 0; i < letters.Length / 2; i++)
+            {
+                var oldElement = letters[i];
+                letters[i] = letters[letters.Length - 1 - i];
+                letters[letters.Length - 1 - i] = oldElement;
+            }
+
+            Console.WriteLine(string.Join(" ", letters));
+        }
+    }
+}

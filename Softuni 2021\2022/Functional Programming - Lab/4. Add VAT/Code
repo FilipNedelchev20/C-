@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 4AddVAT
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Func<double, double> nums = n => n * 1.2;
+            List<double> numbers = Console.ReadLine()
+                .Split(", ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse).Select(nums).ToList();
+            foreach (var price in numbers)
+            {
+                Console.WriteLine($"{price:f2}");
+            }
+        }
+    }
+}

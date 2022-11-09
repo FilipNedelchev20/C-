@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 1OperationsWithStack
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //масив от цели числа
+            int[] array = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            // N е числото като първият елемент от масива и отговаря за броя елементи в стека които добавяме
+            int N = array[0];
+            // S е вторият елемент от масива и отговаря за елементите които махаме от стека
+            int S = array[1];
+            // X е трети елемент от масива и отговаря за числото което проверяваме дали е в стека
+            int X = array[2];
+            // стек от цели числа
+            Stack<int> numbers = new Stack<int>(Console.ReadLine().Split(' ').Select(int.Parse));
+
+            
+            for (int i = 0; i < S; i++)
+            {
+                numbers.Pop();
+            }
+            // проверяваме дали числото е в стека
+            if (numbers.Contains(X))
+            {
+                // изписваме на конзолата
+                Console.WriteLine($"found");
+            }
+            else 
+            {
+                if (numbers.Count != 0)
+                {
+                    //изписваме най-малкото число на конзолата ако стека не съдържа търсеният елемент
+                    Console.WriteLine(numbers.Min());
+                }
+                else if (numbers.Count==0)          
+                {
+                    //изписваме че не е намерено нищо на конзолата ако стека е празен
+                    Console.WriteLine("nothing found");
+                }
+
+            }
+
+
+
+
+        }
+    }
+}

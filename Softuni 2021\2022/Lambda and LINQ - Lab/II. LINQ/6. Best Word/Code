@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 6BestWord
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] names = Console.ReadLine().Split(" ").Where(w => w.Contains("est")).Select(w => w.ToUpper()).ToArray();
+            Console.WriteLine("First best word: " + names.FirstOrDefault(w => w.Contains("B")));
+            Console.WriteLine("Last best word: " + names.LastOrDefault(w => w.Contains("B")));
+        }
+    }
+}

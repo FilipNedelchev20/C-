@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ValueSeekerSystem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> input = Console.ReadLine().Split().Select(int.Parse).ToList();
+            List<int> secondinput = Console.ReadLine().Split().Select(int.Parse).ToList();
+
+            int counter = 0;
+
+            while (true)
+            {
+                if (input.Count <= 0)
+                {
+                    Console.WriteLine("First set is empty");
+                    break;
+                }
+
+                if (secondinput.Count <= 0)
+                {
+                    Console.WriteLine("Second set is empty");
+                    break;
+                }
+
+                if ((input[0] + secondinput[secondinput.Count - 1]) % 2 == 0)
+                {
+                    counter += input[0] + secondinput[secondinput.Count - 1];
+                    input.Remove(input[0]);
+                    secondinput.Remove(secondinput[secondinput.Count - 1]);
+                }
+                else
+                {
+                    input.Add(secondinput[secondinput.Count - 1]);
+                    secondinput.Remove(secondinput[secondinput.Count - 1]);
+                }
+
+            }
+
+            if (counter >= 100)
+                Console.WriteLine($"Your bets were amazing! Value: {counter}");
+
+            else
+                Console.WriteLine($"Your bets were poor. Value: {counter}");
+
+        }
+    }
+}

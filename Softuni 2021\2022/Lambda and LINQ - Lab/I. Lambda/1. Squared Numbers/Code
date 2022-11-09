@@ -1,0 +1,17 @@
+using System;
+
+namespace 1SquaredNumbers
+{
+    class Program
+    {
+        static int Double(int x) => x * x;
+        
+
+        
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+           Console.WriteLine(Double(number));
+        }
+    }
+}

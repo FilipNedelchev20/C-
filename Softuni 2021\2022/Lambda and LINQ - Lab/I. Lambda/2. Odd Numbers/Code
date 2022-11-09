@@ -1,0 +1,19 @@
+using System;
+using System.Linq;
+
+namespace 2OddNumbers
+{
+    class Program
+    {
+        static bool isOdd(int x) => x % 2 != 0;
+        static void Main(string[] args)
+        {
+            int[] numbers = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+            foreach (int number in numbers)
+            {
+                Console.WriteLine($"{number} is odd - {isOdd(number)}");
+            }
+        }
+        
+    }
+}

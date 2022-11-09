@@ -1,0 +1,29 @@
+using System;
+using System.Linq;
+namespace 5EqualSums
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = Console.ReadLine().Split(" ")
+                .Select(int.Parse).ToArray();
+            int sumRight = array.Sum();
+            int sumLeft = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sumRight -= array[i];
+                if (sumRight == sumLeft)
+                {
+                    Console.WriteLine(i);
+                    return;
+                }
+                else
+                {
+                    sumLeft += array[i];
+                }
+            }
+            Console.WriteLine("no");
+        }
+    }
+}

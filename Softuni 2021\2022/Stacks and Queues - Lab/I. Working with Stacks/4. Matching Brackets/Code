@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+namespace 4MatchingBrackets
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string equasians = Console.ReadLine();
+            Stack<int> numbers = new Stack<int>();
+            int openinng = 0;
+            for (int i = 0; i < equasians.Length; i++)
+            {
+                if (equasians[i] == '(')    
+                {
+                    numbers.Push(i);
+                }
+                else if (equasians[i] == ')')
+                {
+                    openinng = numbers.Pop();
+                    Console.WriteLine(equasians.Substring(openinng, i - openinng + 1));
+                }
+
+            }
+        }
+    }
+
+}

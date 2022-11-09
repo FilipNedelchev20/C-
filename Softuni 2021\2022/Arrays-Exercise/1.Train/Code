@@ -1,0 +1,21 @@
+using System;
+using System.Linq;
+namespace 1Train
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int wagons = int.Parse(Console.ReadLine());
+            int[] arr = new int[wagons];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int people = int.Parse(Console.ReadLine());
+                arr[i] = people;
+            }
+            Console.Write(string.Join(" ", arr));
+            Console.WriteLine();
+            Console.WriteLine(arr.Sum());
+        }
+    }
+}

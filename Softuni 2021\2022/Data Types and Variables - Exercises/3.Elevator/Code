@@ -1,0 +1,19 @@
+using System;
+
+namespace 3Elevator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int peopleNumber = int.Parse(Console.ReadLine());
+            int elevator = int.Parse(Console.ReadLine());
+            int courses = peopleNumber / elevator;
+            if (courses * elevator < peopleNumber)
+            {
+                courses++;
+            }
+            Console.WriteLine(courses);
+        }
+    }
+}

@@ -1,0 +1,51 @@
+using System;
+
+namespace Paint
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string bucketSize = Console.ReadLine();
+            string bucketColor = Console.ReadLine();
+            int bucketSold = int.Parse(Console.ReadLine());
+            double priceCelling = 0;
+            if (bucketColor == "Green")
+            {
+                if (bucketSize == "Small")
+                {
+                    priceCelling = 48;
+                }
+
+                else if (bucketSize == "Medium")
+                {
+                    priceCelling = 89;
+                }
+                else if (bucketSize == "Large")
+                {
+                    priceCelling = 112;
+                }
+            }
+            else if (bucketColor == "Yellow")
+            {
+                if (bucketSize == "Small")
+                {
+                    priceCelling = 45;
+                }
+                else if (bucketSize == "Medium")
+                {
+                    priceCelling = 87;
+                }
+                else if (bucketSize == "Large")
+                {
+                    priceCelling = 109;
+                }
+            }
+
+            double fullPrice = priceCelling * bucketSold;
+            double costs = 0.35 * fullPrice;
+            Console.WriteLine($"{fullPrice - costs:F2} leva");
+        }
+    }
+}

@@ -1,0 +1,74 @@
+using System;
+
+namespace 4PasswordValidator
+{
+    class Program
+    {
+        private static void Password(bool lenght, bool symbols, bool digits)
+        {
+            if (lenght && symbols && digits)
+            {
+                Console.WriteLine("Password is valid");
+                return;
+            }
+             if (!lenght)
+            {
+                Console.WriteLine("Password must be between 6 and 10 characters");
+            }
+             if (!symbols)
+            {
+                Console.WriteLine("Password must consist only of letters and digits");
+            }
+             if (!digits)
+            {
+                Console.WriteLine("Password must have at least 2 digits");
+            }
+            return;
+        }
+        private static bool LenghtFull(string password)
+        {
+            if (password.Length>=6 && password.Length <= 10)
+            {
+                return true;
+            }
+            return false;
+        }
+        private static bool AllSymbols(string password)
+        {
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (!char.IsLetterOrDigit(password[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private static bool AllDigits(string password)
+        {
+            int number = 0;
+            for (int i = 0; i < password.Length; i++)
+            {
+                if(char.IsDigit(password[i]))
+                {
+                    number++;
+                    if(number == 2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        static void Main(string[] args)
+        {
+            string password = Console.ReadLine();
+
+            bool lenght = LenghtFull(password);
+            bool symbols = AllSymbols(password);
+            bool digits = AllDigits(password);
+
+            Password(lenght,symbols,digits);
+        }
+    }
+}

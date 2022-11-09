@@ -1,0 +1,48 @@
+using System;
+
+namespace 3Calculations
+{
+    class Program
+
+    {
+        private static void Add(int number1, int number2)
+
+        {
+            Console.WriteLine(number1 + number2);
+        }
+        private static void Multiply(int number1, int number2)
+        {
+            Console.WriteLine(number1 * number2);
+        }
+        private static void Subtract(int number1,int number2)
+        {
+            Console.WriteLine(number1 - number2);
+        }
+       private static void Divide(int number1, int number2)
+        {
+            Console.WriteLine(number1 / number2);
+        }
+        static void Main(string[] args)
+        {
+            string calculation = Console.ReadLine();
+            int number1 = int.Parse(Console.ReadLine());
+            int number2 = int.Parse(Console.ReadLine());
+            if (calculation == "add")
+            {
+                Add(number1, number2);
+            }
+            if (calculation == "multiply")
+            {
+                Multiply(number1, number2);
+            }
+            if (calculation == "subtract")
+            {
+                Subtract(number1, number2);
+            }
+            if (calculation == "divide")
+            {
+                Divide(number1, number2);
+            }
+        }
+    }
+}

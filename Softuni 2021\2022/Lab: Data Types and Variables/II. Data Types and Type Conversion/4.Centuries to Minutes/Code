@@ -1,0 +1,18 @@
+using System;
+
+namespace 4CenturiesToMinutes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int centurie = int.Parse(Console.ReadLine());
+            int year = centurie * 100;
+            int day = (int)(year * 365.2422);
+            int hour = 24 * day;
+            int minute = 60 * hour;
+
+            Console.WriteLine("{0} centuries = {1} years = {2} days = {3} hours = {4} minutes", centurie, year, day, hour, minute);
+        }
+    }
+}

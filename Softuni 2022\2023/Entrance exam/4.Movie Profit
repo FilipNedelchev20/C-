@@ -1,0 +1,41 @@
+using System;
+
+namespace MovieProfit
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double budgetActors = double.Parse(Console.ReadLine());
+            string nameOfActor = string.Empty;
+            double salaryOut = 0;
+
+            while ((nameOfActor = Console.ReadLine()) != "ACTION")
+            {
+                if (nameOfActor.Length <= 15 && nameOfActor.Length > 0)
+                {
+                    double salary = double.Parse(Console.ReadLine());
+                    salaryOut = salary;
+                }
+                else
+                {
+                    salaryOut = budgetActors * 0.20;
+                }
+
+                if (budgetActors < salaryOut)
+                {
+                    break;
+                }
+                budgetActors -= salaryOut;
+            }
+            if (budgetActors >= salaryOut)
+            {
+                Console.WriteLine($"We are left with {budgetActors:f2} leva.");
+            }
+            else
+            {
+                Console.WriteLine($"We need {(salaryOut - budgetActors):f2} leva for our actors.");
+            }
+        }
+    }
+}

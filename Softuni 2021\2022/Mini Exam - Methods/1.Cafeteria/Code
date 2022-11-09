@@ -1,0 +1,45 @@
+using System;
+
+namespace 1Cafeteria
+{
+    class Program
+    {
+
+        // пишем метод
+        private static void Cafeteria(string word, int number)
+        {// пишем резултата като дробно число
+            double result = 0.00;
+            //проверяваме ако думата е вода 
+            if (word == "water")
+            {// резултата да е равен на цената за водата по въведения номер
+                result = 1.00 * number;
+                // и после изписваме на конзолата и на долу правим всички
+                Console.WriteLine($"{(result):F2}");
+            }
+            if (word == "coke")
+            {
+                result = 1.40 * number;
+                Console.WriteLine($"{(result):F2}");
+            }
+            if (word == "coffee")
+            {
+                result = 1.50 * number;
+                Console.WriteLine($"{(result):F2}");
+            }
+            if (word == "snacks")
+            {
+                result = 2.00 * number;
+                Console.WriteLine($"{(result):F2}");
+            }
+
+        }
+        static void Main(string[] args)
+        {// въвеждаме дума
+            string word = Console.ReadLine();
+            // въвеждаме номера
+            int number = int.Parse(Console.ReadLine());
+            // извикваме метода
+            Cafeteria(word, number);
+        }
+    }
+}

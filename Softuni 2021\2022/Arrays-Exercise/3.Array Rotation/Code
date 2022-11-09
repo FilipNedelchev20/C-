@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+namespace 3ArrayRotation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] array = Console.ReadLine().Split(" ");
+            int numbersRotations = int.Parse(Console.ReadLine());
+            for (int rotations = 0; rotations < numbersRotations; rotations++)
+            {
+                string numberFirst = array[0];
+                for (int i = 1; i < array.Length; i++)
+                {
+                    array[i - 1] = array[i];
+
+                }
+                array[array.Length - 1] = numberFirst;
+
+            }
+            foreach (string ellement in array)
+            {
+                Console.Write($"{ellement} ");
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+using System;
+
+namespace 8StorageBeerKegs
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numbers = int.Parse(Console.ReadLine());
+            double heighestVolume = 0;
+            string heighestModel = "";
+            for (int i = 0; i < numbers; i++)
+            {
+                string model = Console.ReadLine();
+                double radius = double.Parse(Console.ReadLine());
+                int height = int.Parse(Console.ReadLine());
+                double volume = Math.PI * radius * radius * height;
+                if (volume > heighestVolume)
+                {
+                    heighestVolume = volume;
+                    heighestModel = model;
+                }
+            }
+            Console.WriteLine(heighestModel);
+        }
+    }
+}

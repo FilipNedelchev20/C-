@@ -1,0 +1,29 @@
+using System;
+
+namespace 2VowelsCount
+{
+    class Program
+    {
+        private static int count;
+
+        static int Vowels(string word)
+        {
+            string vowels = "IEAOUieaou";
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (vowels.Contains(word[i]))   
+                {
+                    count++;
+                }
+            }
+            return count;
+        } 
+
+        static void Main(string[] args)
+        {
+            string word = Console.ReadLine();
+            int count = Vowels( word );
+            Console.WriteLine($"{count}");
+        }
+    }
+}

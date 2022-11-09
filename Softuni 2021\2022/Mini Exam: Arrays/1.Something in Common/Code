@@ -1,0 +1,24 @@
+using System;
+using System.Linq;
+namespace 1SomethingInCommon
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {   // Въвеждаме масивите
+            string[] arrFirst = Console.ReadLine().Split(" ").ToArray();
+            string[] arrSecond = Console.ReadLine().Split(" ").ToArray();
+            // Пишем foreach за да може да повторим операцията за първият
+            foreach (string same1 in arrSecond)
+            {// и вторият
+                foreach (string same2 in arrFirst)
+                {// правим проверката
+                    if (same1 == same2)
+                    {// и накрая записваме
+                        Console.Write($" {same2}");
+                    }
+                }
+            }
+        }
+    }
+}

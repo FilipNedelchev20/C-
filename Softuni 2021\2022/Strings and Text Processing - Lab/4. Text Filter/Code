@@ -1,0 +1,23 @@
+using System;
+using System.Linq;
+
+namespace 4TextFilter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string [] bann = Console.ReadLine().Split(", ").ToArray();
+            string text = Console.ReadLine();
+
+            foreach(var ban in bann)
+            {
+                if(text.Contains(ban))
+                { 
+                   text=text.Replace(ban, new string('*', ban.Length));
+                }
+            }
+            Console.WriteLine(text);
+        }
+    }
+}

@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 6CustomersExtended
+{
+    
+    class Customers
+    {
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public int orders { get; set; }
+        public string status { get; set; }
+    }
+    class Program
+    {
+        private static void Removing(List<Customers> customers, Customers customer)
+        {
+            customers.Remove(customers.FirstOrDefault(x => x.firstname == customer.firstname && x.lastname == customer.lastname));
+        }
+        static void Main(string[] args)
+        {
+            List<Customers> customers = new List<Customers>();
+            string input;
+            while ((input = Console.ReadLine()) != "end")
+            {
+                string[] array = input.Split();
+                Customers customer = new Customers();
+                customer.firstname = array[0];
+                customer.lastname = array[1];
+                customer.orders = int.Parse(array[2]);
+                customer.status = array[3];
+                Removing( customers, customer);
+                customers.Add(customer);
+               
+            }
+
+            string statuss = Console.ReadLine();
+            foreach (Customers custumer in customers)
+            {
+                if (custumer.status == statuss)
+                {
+                  
+                   
+                        Console.WriteLine($"{custumer.firstname} {custumer.lastname} has {custumer.orders} orders.");
+                    
+                    
+                }
+            }
+        
+        }
+    }
+}

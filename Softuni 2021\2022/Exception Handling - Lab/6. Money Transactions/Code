@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace 6MoneyTransitions
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string [] array = Console.ReadLine().Split(',').ToArray();
+            Dictionary<int, double> accounts = new Dictionary<int, double>();
+            foreach (var item in array)
+            {
+                string[] couple = item.Split('-').ToArray();
+                accounts.Add(int.Parse(couple[0]), double.Parse(couple[1]));
+
+            }
+            while (true)
+            {
+                string[] tokens = Console.ReadLine().Split(' ');
+                if (tokens[0] == "End")
+                {
+                    break;
+                }
+                string command = tokens[0];
+                int account = int.Parse(tokens[1]);
+                double amount = double.Parse(tokens[2]);
+                try
+                {
+                    if (command != "Deposit" && command != "Withdraw") throw new Exception("Invalid command!");
+                    if (!accounts.ContainsKey(account)) throw new Exception("Invalid account!");
+                    if (command == "Withdraw" && amount > accounts[account]) throw new Exception("Insufficient balance!");
+                    if (command == "Deposit")
+                    {
+                        accounts[account] += amount;
+                    }
+                    else
+                    {
+                        accounts[account]-= amount;
+                    }
+                    Console.WriteLine($"Account {account} has new balance: {accounts[account]:f2}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("Enter another command");
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 2EmployessStatistics
+{
+    public class Employee
+    {
+        public string Name { get; set; }    
+        public decimal Salary { get; set; }
+        public string Department { get; set; }
+    }
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            List<Employee> list = new List<Employee>();
+            for (int i = 0; i < number; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ');
+                Employee employe = new Employee();
+                employe.Name = input[0];
+                employe.Salary = decimal.Parse(input[1]);
+                employe.Department = input[2];
+                list.Add(employe);
+            }
+            
+            
+                var employees = list.OrderByDescending(s => s.Salary).ToList();
+                 Employee employee = employees.First();
+                string departing = employee.Department;
+                Console.WriteLine($"Highest Average Salary: {departing}");
+                foreach (Employee item in employees.Where(x=>x.Department == departing))
+                {
+                Console.WriteLine( $"{item.Name} {item.Salary:f2} ");
+                }
+  
+        }
+    }
+
+}

@@ -1,0 +1,23 @@
+using System;
+namespace 1BinaryDigitCount
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int count = 0;
+            while (number!=0)
+            {
+                int reminder = number % 2;
+                if (reminder==b)
+                {
+                    count++;
+                }
+                number=number/2;
+            }
+            Console.WriteLine(count);
+        }
+    }
+}

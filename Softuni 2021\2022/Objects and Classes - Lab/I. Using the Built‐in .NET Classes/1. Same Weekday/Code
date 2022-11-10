@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace 1SameWeekday
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> firstDates = Console.ReadLine().Split('-').Select(int.Parse).ToList();
+            List<int> secondDates = Console.ReadLine().Split('-').Select(int.Parse).ToList();
+            int day = firstDates[0];
+            int days = secondDates[0];
+
+            int month = firstDates[1];
+            int months = secondDates[1];
+
+            int year = firstDates[2]; 
+            int years = secondDates[2];    
+            DateTime Everything = new DateTime(year, month, day);        
+            DateTime everything = new DateTime(years, months, days);
+            if (Everything.DayOfWeek == everything.DayOfWeek)
+            {
+                Console.WriteLine($"Yes");
+                Console.WriteLine(Everything.DayOfWeek);
+            }
+            else
+            {
+                Console.WriteLine($"No");
+            }
+            
+        }
+    }
+}

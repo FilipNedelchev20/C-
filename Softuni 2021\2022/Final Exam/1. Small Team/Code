@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace 1SmallTeam
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = Console.ReadLine();
+
+
+            string command;
+            while ((command = Console.ReadLine()) != "read it now")
+            {
+
+
+                string[] com = command.Split("<->");
+
+                string comand = com[0];
+
+               
+                if (comand == "Insert")
+                {
+                    string text = com[1];
+                    int index = int.Parse(com[2]);
+                   
+                   
+                   input = input.Insert(index, text);
+                   
+                }
+
+                if (comand == "Reverse")
+                {
+                    string reversment= string.Empty;
+                    for (int i = input.Length - 1;i>= 0; i--)
+                    {
+                        reversment+=input[i];
+                    }
+
+                    input = reversment;
+                }
+
+                if (comand == "Change")
+                {
+                    int old = input.LastIndexOf(com[1]);
+            
+                    string newword = com[2];
+                    input = input.Remove(old, 1).Insert(old, newword);
+                    
+                }
+
+
+            }
+            Console.WriteLine($"You have a text message: {input}");
+
+
+
+
+        }
+    }
+}

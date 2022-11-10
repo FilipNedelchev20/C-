@@ -1,0 +1,39 @@
+using System;
+using System.Text.RegularExpressions;
+
+
+namespace 2SoftUniBarIncome
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string regex = @"%(?<name>[A-Z][a-z]+)%[^|$%.]*<(?<product>\w+)>[^|$%.]*\|[^|$%.]*?(?<count>\d+)\|[^|$%.]*?(?<price>\d+\.*\d*)\$";
+            double totalcome = 0;
+
+            while (true)
+            {
+                string line = Console.ReadLine();
+
+                if (line == "end of shift")
+                {
+                    break;
+                }
+
+                if (Regex.IsMatch(line, regex))
+                {
+                    Match match = Regex.Match(line, regex);
+                    string customer = match.Groups["name"].Value;
+                    string product = match.Groups["product"].Value;
+                    int count = int.Parse(match.Groups["count"].Value);
+                    double price = double.Parse(match.Groups["price"].Value);
+                    double money = price * count;
+                    Console.WriteLine($"{customer}: {product} - {money:F2}");
+                    totalcome += money;
+                }
+            }
+            Console.WriteLine($"Total income: {totalcome:F2}");
+     
+        }
+    }
+}

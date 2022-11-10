@@ -1,0 +1,15 @@
+using System; 
+namespace 2BitAtPosittion
+{
+    public class Program
+    {
+        static void Main(string[]args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            int position = 1;
+            number = number >>1;
+            int result = number & position;
+            Console.WriteLine(result);
+        }
+    }
+}

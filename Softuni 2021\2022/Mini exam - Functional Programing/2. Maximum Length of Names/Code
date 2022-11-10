@@ -1,0 +1,52 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+
+
+
+namespace 2MaximumLenghtOfNames
+
+{
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+
+            
+
+            int number = int.Parse(Console.ReadLine());
+
+            List<string> names = Console.ReadLine().Split(' ').ToList();
+
+            Action<string> print = n => Console.WriteLine(n);
+
+            for (int i = 0; i < names.Count; i++)
+
+            {
+
+                string name = names[i];
+
+                int count = name.Length;
+
+                if (count <= number)
+
+                {
+
+                    print(name);
+
+                }
+
+            }
+
+            }
+
+    }
+
+}

@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 1Employess
+{
+    public class Employee
+    {
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public double Salary { get; set; }
+    }
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+          int number = int.Parse(Console.ReadLine());
+          
+           
+           
+                List<Employee> employees = new List<Employee>();
+            for (int i = 0; i < number; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ').ToArray();
+
+                Employee employee = new Employee();
+
+                employee.Firstname = input[0];
+                employee.Lastname = input[1];
+                employee.Salary = double.Parse(input[2]);
+                employees.Add(employee);
+            }
+            
+            foreach (Employee item in employees.OrderByDescending(x=>x.Salary))
+            {
+                Console.WriteLine($"{item.Firstname} {item.Lastname}: {item.Salary:f2}");
+            }
+         
+        }
+
+    }
+}

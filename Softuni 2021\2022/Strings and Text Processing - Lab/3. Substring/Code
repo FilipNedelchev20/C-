@@ -1,0 +1,21 @@
+using System;
+
+namespace 3Substring
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string chars = Console.ReadLine();
+            string word = Console.ReadLine();
+            int index = word.IndexOf(chars);
+
+            while(index != -1)
+            {
+                word = word.Remove(index, chars.Length);
+                index = word.IndexOf(chars);
+            }
+            Console.WriteLine(word);
+        }
+    }
+}

@@ -9,3 +9,9 @@ Genre / All movies.
 
 Output:
  Print only the names of the movies from the given criteria – Genre / All movies, each on a new line.
+
+Solution:
+Define a class Movie with properties: Genre, Name and Duration.
+Read the input lines, make a collection and store the data.
+Finally read your last line – Genre List and print the result.
+You can use LINQ to filter the collection.

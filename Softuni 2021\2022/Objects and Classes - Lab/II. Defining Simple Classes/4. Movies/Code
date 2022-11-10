@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 4Movies
+{
+    class Movie
+    {
+        public string Genre { get; set; }
+        public string Name { get; set; }
+        public string Duration { get; set; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int number = int.Parse(Console.ReadLine());
+            List<Movie> movies = new List<Movie>();
+            for (int i = 0; i < number; i++)
+            {
+                string[] input = Console.ReadLine().Split('|');
+                string genre = input[0];
+                string name = input[1];
+                string duration = input[2];
+                Movie movie = new Movie();
+                movie.Genre = genre;
+                movie.Name = name;
+                movie.Duration = duration;
+                movies.Add(movie);
+            }
+            string command = Console.ReadLine();
+            if (command=="all")
+            {
+                foreach (Movie movie in movies)
+                {
+                    Console.WriteLine(movie.Name);
+                }
+            }
+            else 
+            
+            {
+                foreach (Movie movie in movies)
+                {
+                    if (movie.Genre == command)
+                    {
+                        Console.WriteLine(movie.Name);
+                    }
+                }
+            }
+            
+           
+        }
+    }
+}

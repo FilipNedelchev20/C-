@@ -1,0 +1,46 @@
+using System;
+
+using System.Linq;
+
+
+namespace 1ValidUsernames
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] usernames = Console.ReadLine().Split(", ").ToArray();
+            bool truechecker = true;
+            for (int i = 0; i <= usernames.Length - 1; i++)
+            {
+                if (usernames[i].Length >= 3 && usernames[i].Length <= 16)
+                {
+
+
+                    foreach (char validname in usernames[i])
+                    {
+                        if (truechecker)
+                        {
+
+
+                            if (!char.IsLetterOrDigit(validname) && validname != '-' && validname != '_')
+                            {
+                                truechecker = false;
+                            }
+                        }
+                    }
+                    if (truechecker)
+                    {
+                        Console.WriteLine(usernames[i]);
+                    }
+                    else
+                    {
+                        truechecker = true;
+                    }
+                }
+
+            }
+           
+        }
+    }
+}

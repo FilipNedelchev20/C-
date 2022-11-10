@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace 1Treasures
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Regex regex1 = new Regex(@"(@(?<metal>[A-z]+)\|)");
+            Regex regex2 = new Regex(@"#(?<gem>[A-z]+)\*");
+            string line = Console.ReadLine();
+            List<string> print = new List<string>();
+            
+            if (regex1.IsMatch(line))
+            {
+                Match matched = regex1.Match(line);
+                string metal = matched.Groups["metal"].Value;
+                print.Add(metal);
+            }
+            if (regex2.IsMatch(line))
+            {
+                Match matched2 = regex2.Match(line);
+                string gem = matched2.Groups["gem"].Value;
+                print.Add(gem);
+            }
+           
+            Console.WriteLine($"Found hidden {print[0]} and {print[1]} in the cave.");
+  
+        }
+    }
+}

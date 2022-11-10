@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace 1Dates
+{
+    internal class DataCounter
+    {
+        public string date1 { get; set; }
+        public string date2 { get; set; }
+        public int Difference(string date1, string date2)
+        {
+            int[] date = date1.Split('/').Select(int.Parse).ToArray();
+            DateTime datetime = new DateTime(date[0], date[1], date[2]);
+            int[] datt = date2.Split('/').Select(int.Parse).ToArray();
+            DateTime datetime2 = new DateTime(datt[0], datt[1], datt[2]);
+            return Math.Abs((datetime - datetime2).Days);
+        }
+    }
+}

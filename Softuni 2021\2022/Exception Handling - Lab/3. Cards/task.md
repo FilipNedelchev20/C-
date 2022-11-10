@@ -18,3 +18,8 @@ Input:
 
 Output:
  As output, print on the console the list of cards as strings, separated by space.
+
+Hints:
+Write a method CreateCard(face, suit), which creates a card face and card suit and returns a Card object.
+The method should throw and exception if invalid data are given in its arguments. Later, you can catch the exception
+and print an error message.

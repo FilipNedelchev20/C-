@@ -1,0 +1,17 @@
+You will receive on the first line an array of integers. After that you will receive commands, which should
+manipulate the array:
+ "Replace {index} {element}" – Replace the element at the given index with the given element.
+ "Print {startIndex} {endIndex}" – Print the elements from the start index to the end index inclusive.
+ "Show {index}" – Print the element at the index.
+You have the task to rewrite the messages from the exceptions which can be produced from your program:
+ If you receive an index, which does not exist in the array print:
+"The index does not exist!"
+ If you receive a variable, which is of invalid type:
+"The variable is not in the correct format!"
+When you catch 3 exceptions – stop the input and print the elements of the array separated with ", ".
+
+Constraints:
+ The elements of the array will be in integers in the interval [‐2147483648...2147483647]
+ You will always receive valid string for the first part of the command, but the parameters might be invalid
+ In the “Print” command always be true startIndex <= endIndex
+ You will always receive at least 3 exceptions

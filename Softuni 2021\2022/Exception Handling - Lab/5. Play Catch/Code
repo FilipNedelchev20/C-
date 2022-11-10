@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace 5PlayCatch
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+            int counter = 0;
+            while (counter < 3)
+            {
+                string[] array = Console.ReadLine().Split(' ');
+                string command = array[0];
+                try
+                {
+                    if (command == "Replace")
+                    {
+                        int index = int.Parse(array[1]);
+                        int element = int.Parse(array[2]);
+                        numbers.RemoveAt(index);
+                        numbers.Insert(index, element);
+                        
+                    }
+                    else if (command == "Print")
+                    {
+                        int start = int.Parse(array[1]);
+                        int end = int.Parse(array[2]);
+                        List<int> list = new List<int>();
+                        for (int i = start; i <= end; i++)
+                        {
+                            list.Add(numbers[i]);
+                        }
+                        Console.WriteLine(string.Join(", ", list));
+                        
+                    }
+                    else if (command == "Show")
+                    {
+                        int indexShow = int.Parse(array[1]);
+                        Console.WriteLine(numbers[indexShow]);
+                        
+                    }
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    counter++;
+                    Console.WriteLine("The index does not exist!");
+                }
+                catch (FormatException)
+
+                {
+                    counter++;
+                    Console.WriteLine("The variable is not in the correct format!");
+                }
+                
+            }
+            Console.WriteLine(string.Join(", ", numbers));
+        }
+    }
+}

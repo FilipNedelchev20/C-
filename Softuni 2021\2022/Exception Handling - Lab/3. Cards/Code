@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace 3Cards
+{
+    class Cards
+    {
+        public string Faces { get; set; }
+        public string Suit { get; set; }
+        public override string ToString()
+        {
+            return $"[{this.Faces}{this.Suit}]";
+        }
+    }
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            string[] array = Console.ReadLine().Split(", ").ToArray();
+            List<Cards> list = new List<Cards>();             
+            foreach (var cards in array)
+            {
+                string [] Face = new [] {"A","K","Q","1","2","3","4","5","6","7","8","9","10"};
+                Dictionary<string, string> suites = new Dictionary<string, string>() {
+                    {"S","\u2660"},
+                    {"H","\u2665"}, 
+                    {"D","\u2666"}, 
+                    {"C","\u2663"} 
+                };
+                string[] elements = cards.Split(" ").ToArray();
+                string face = elements[0];
+                string suits = elements[1];
+                try
+                {
+                    if (!Face.Contains(face) || !suites.ContainsKey(suits))
+                    {
+                        throw new Exception("Invalid card!");
+                    }
+                    Cards card = new Cards();
+                    card.Faces = face;
+                    card.Suit = suites[suits];
+                    list.Add(card);
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+            }
+            Console.WriteLine(string.Join(" ",list));
+            
+        }
+    }
+}

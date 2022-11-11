@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SpeedRacing
+{
+    public class Car
+    {
+        public string model { get; set; }
+        public decimal fuelAmount { get; set; }
+        public decimal fuelConsumption { get; set; }
+        public int distance { get; set; }
+
+        public Car(string[] cars)
+        {
+            this.model = cars[0];
+            this.fuelAmount = decimal.Parse(cars[1]);
+            this.fuelConsumption = decimal.Parse(cars[2]);
+
+        }
+
+        public void Drive(int distance)
+        {
+            decimal fuel = distance * this.fuelConsumption;
+
+            if (this.fuelAmount >= fuel)
+            {
+                this.distance += distance;
+                this.fuelAmount -= fuel;
+            }
+            else
+            {
+                Console.WriteLine("Insufficient fuel for the drive");
+            }
+        }
+    }
+}

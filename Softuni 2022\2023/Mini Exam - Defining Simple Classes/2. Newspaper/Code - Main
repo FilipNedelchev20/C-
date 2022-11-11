@@ -1,0 +1,38 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+
+namespace Newspaper
+{
+    public class StartUp
+    {
+        static void Main(string[] args)
+        {
+            string[] newss = Console.ReadLine().Split(", ", StringSplitOptions.RemoveEmptyEntries).ToArray();
+            int number = int.Parse(Console.ReadLine());
+            News neos = new News(newss[0], newss[1], newss[2]);
+            
+            
+            
+            for (int i = 0; i < number; i++)
+            {
+               string[] command = Console.ReadLine().Split(": ", StringSplitOptions.RemoveEmptyEntries).ToArray();
+                if (command[0] == "ChangeWriter")
+                {
+                    neos.ChangeWritter(command[1]);
+                }
+                if (command[0] == "Edit")
+                {
+                    neos.Edit(command[1]);
+
+                }
+                
+                if (command[0]=="Rename")
+                {
+                    neos.Rename(command[1]);
+                }
+            }
+            Console.WriteLine(neos.ToString());
+        }
+    }
+}

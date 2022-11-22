@@ -1,0 +1,187 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ImplementLinkedList
+{
+    public class LinkedList
+    {
+        private class Node
+        {
+            private object element;
+            private Node next;
+            public object Element
+            {
+                get { return element; }
+                set { element = value; }
+            }
+            public Node Next
+            {
+                get { return next; }
+                set { next = value; }
+            }
+            public Node(object element, Node prevNode)
+            {
+                Element = element;
+                prevNode.Next = this;
+                next = null;
+
+            }
+            public Node(object element)
+            {
+                Element = element;
+                next = null;
+            }
+        }
+        private Node head;
+        private Node tail;
+        private int count;
+        public LinkedList()
+        {
+            this.head = null;
+            this.tail = null;
+            this.count = 0;
+        }
+        public void Add(object item)
+        {
+            if (head == null)
+            {
+                head = new Node(item);
+                tail = head;
+            }
+            else
+            {
+                Node newNode = new Node(item, tail);
+                tail = newNode;
+            }
+            Count++;
+        }
+        public object Remove(int index)
+        {
+            if (index < 0|| index>= Count)
+            {
+                throw new ArgumentOutOfRangeException("Invalid index: " + index);
+
+            }
+            int newIndex = 0;
+            Node newwNode = head;
+            Node prevNode = null;
+            while (newIndex<index)
+            {
+                prevNode = newwNode;
+                newwNode = newwNode.Next;
+                newIndex++;
+            }
+            Count--;
+            if (Count == 0)
+            {
+                tail = null;
+                head = null;
+            }
+            else if (prevNode == null)
+            {
+                head = newwNode.Next;
+            }
+            else 
+             {
+                prevNode.Next = newwNode.Next;
+            }
+            return newwNode.Element;
+        }
+        public int Remove(object item)
+        {
+            int newIndex = 0;
+            Node newwNode = head;
+            Node prevNode = null;
+            while (newwNode != null)
+            {
+                if (newwNode.Element.Equals(item)) 
+                {
+                    break;
+                }
+                prevNode = newwNode;
+                newwNode = newwNode.Next;
+                newIndex++;
+            }
+            if (newwNode != null)
+            {
+                Count--;
+                if (Count == 0)
+                {
+                    head = null;
+                    tail = null;
+                }
+                else if (prevNode == null)
+                {
+                    head = newwNode.Next;
+                }
+                else
+                {
+                    prevNode.Next = newwNode.Next;
+                }
+                return newIndex;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public int IndexOf(object item)
+        {
+            int index = 0;
+            Node current = head;
+            while (current!=null)
+            {
+                if (current.Element.Equals(item))
+                {
+                    return index;
+                }
+                current = current.Next;
+                index++;
+            }
+            return -1;
+
+        }
+        public bool Contains(object item)
+        {
+            int index = IndexOf(item);
+            bool found = index != 1;
+            return found;
+        }
+        public object this[int index]
+        {
+            get
+            {
+                if (index >= Count || index < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Invalid index: " + index);
+                }
+                Node newwNode = this.head;
+                for (int i = 0; i < index; i++)
+                {
+                    newwNode = newwNode.Next;
+                }
+                return newwNode.Element;
+            }
+            set
+            {
+                if (index >=Count || index<0)
+                {
+                    throw new ArgumentOutOfRangeException("Invalid index: " + index);
+                }
+                Node newwNode = this.head;
+                for (int i = 0; i < index; i++)
+                {
+                    newwNode = newwNode.Next;
+                }
+                newwNode.Element = value;
+            }
+        }
+        public int Count
+        {
+            get { return count; }
+            private set { count = value; }
+        }
+    }
+}
